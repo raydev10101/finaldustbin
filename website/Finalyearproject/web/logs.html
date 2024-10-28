@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/Styles.css">
+</head>
+
+<body>
+    <div class="container" style="display: block; padding: 1rem; max-width: 1000px;">
+        <legend style=" margin-bottom: 0rem;">
+            IOT Based Intelligent Disposal System
+        </legend>
+        <div class="backgroundColor">
+            <div class="buttons">
+                <button><a href="Users.html" class="navLink">User</a></button>
+                <button style="box-shadow: none; background-color: #7b797c;"><a href="#"
+                        class="navLink">Logs</a></button>
+                <button style="padding-left: 2.2rem; padding-right: 2.2rem; "> <a href="bin fill level.html"
+                        class="navLink">Bin Level</a></button>
+                <button style="padding-left: 1rem; padding-right: 1rem; text-align: center;"><a
+                        href="contactagency.html" class="navLink">Contact Agency</a></button>
+            </div>
+            <div class="tableContainer">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>S/N</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Activity</th>
+                        </tr>
+                    </thead>
+                    <tbody id="logTableBody">
+                        <!-- Rows will be populated here -->
+                    </tbody>
+                </table>
+                <button style="padding: 0.4rem 1.5rem; margin-top: 0.4rem; box-shadow: none;">Export</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const tableBody = document.querySelector('#logTableBody'); // Select the table body
+
+        const runApi = async () => {
+            try {
+                const response = await fetch('http://192.168.166.62:8080/api/log?dateTimeFrom=2024-01-01T00:00:00&dateTimeTo=2025-01-01T00:00:00', { mode: "cors" });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.json();
+                console.log(data.data);
+                return data.data; // Return the array of log entries
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        const populateTable = async () => {
+            const logs = await runApi(); // Get the log data
+            logs.forEach((log, index) => {
+                const tableRow = document.createElement('tr'); // Create a new row
+
+                // Create and populate cells for S/N, Date, Time, and Activity
+                const snCell = document.createElement('td');
+                snCell.textContent = index + 1;
+
+                const dateCell = document.createElement('td');
+                const [date, time] = log.logDateTime.split('T'); // Split date and time
+                dateCell.textContent = date;
+
+                const timeCell = document.createElement('td');
+                timeCell.textContent = time;
+
+                const activityCell = document.createElement('td');
+                activityCell.textContent = log.logMessage;
+
+                // Append the cells to the row
+                tableRow.appendChild(snCell);
+                tableRow.appendChild(dateCell);
+                tableRow.appendChild(timeCell);
+                tableRow.appendChild(activityCell);
+
+                // Append the row to the table body
+                tableBody.appendChild(tableRow);
+            });
+        }
+
+        populateTable(); // Populate the table on page load
+    </script>
+</body>
+
+</html>

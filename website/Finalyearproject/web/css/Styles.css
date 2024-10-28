@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    src: url(LSANS.TTF);
+}
+*{ 
+    font-weight: 900 ;
+    text-align: center;
+    font-size: 16px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 0px;
+    margin:0px;
+}
+.container{
+    border-radius: 1.7rem;
+    margin: 5rem auto;
+    max-width: 30rem;
+    display: flex;
+    background-color:#dff1d7;
+    justify-content: center;
+    padding-bottom: 1rem;
+}
+legend{
+    padding:0.6rem 1.5rem;
+     display: inline;
+     border-radius: 2rem;
+     background-color: #b0c2aa;
+}
+.inputItem{
+    margin: 0px 0.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.inputItem label{
+    background-color: #7ebdc4;
+    margin: 0px 0.6rem;
+    padding: 0.3rem 1.2rem;
+    border-radius: 0.8rem;
+}
+.inputItem input{
+    width: 8.8rem ;
+    border: 0px;
+    height: 1.5rem;
+}
+
+button{
+    border: 0px;
+    margin-bottom: 1rem;
+    border-radius: 2rem;
+    box-shadow: 0px 2px 0px 3px #90857d;
+    background-color: #b0c2aa;
+    padding: 0.5rem 3.5rem;
+
+}
+a{ 
+    color: #257c94;
+    text-decoration: none;
+}
+.tableContainer{
+    padding-right: 3rem;
+    width: 100%;
+}
+table {
+    margin:4rem 1rem 0px 0px ;
+    width: 100%;
+    border-collapse: collapse; /* This removes the space between table cells */
+}
+th, td {
+    border: 1px solid black; /* Border around cells */
+    padding: 1rem; /* Padding inside cells */
+    text-align: left; /* Align text to the left */
+}
+
+.backgroundColor{
+    background-color:#fff;
+    /* padding: 3rem; */
+    display: flex;
+    justify-content: space-between;
+}
+.backgroundColor .buttons{
+   background-color: #7ebdc4;
+}
+.buttons{
+max-width: 13rem;
+margin:1rem 1rem 0px 0px ;
+padding-top: 2.5rem;
+padding-bottom: 4rem;
+border-radius: 1rem;
+}
+.buttons a{
+    color: black;
+}

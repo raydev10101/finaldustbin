@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    src: url(LSANS.TTF);
+}
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f8f5;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    border: 2px solid #d3e2d9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 25%;
+    background-color: #bcd6cc;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.sidebar-btn {
+    background-color: #d0e5dc;
+    border: none;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    text-align: left;
+}
+
+.sidebar-btn.active, .sidebar-btn:hover {
+    background-color: #92b5a9;
+    color: #fff;
+}
+
+.main-content {
+    width: 75%;
+    padding: 20px;
+    text-align: center;
+}
+
+.main-content h1 {
+    margin-bottom: 20px;
+    color: #516d66;
+}
+
+.bin-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bin-info img {
+    width: 150px;
+    margin-right: 20px;
+}
+
+.bin-level p {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
